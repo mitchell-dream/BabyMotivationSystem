@@ -1,3 +1,405 @@
+# 🎰 Baby Task Tracker & Wheel Spin System
+
+A task management and motivation system designed for children. Earn points by completing tasks, accumulate points to participate in wheel spins, helping children develop self-discipline and learning habits.
+
+## 📋 Table of Contents
+
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Usage Guide](#usage-guide)
+- [Interface Introduction](#interface-introduction)
+- [Feature Details](#feature-details)
+- [Data Information](#data-information)
+- [Important Notes](#important-notes)
+
+## ✨ Features
+
+### Core Features
+- ✅ **Multi-user Management**: Support multiple children to use independently, each user's data is completely independent
+- ✅ **Task Management**: Customizable task list, support adding, deleting, and modifying tasks
+- ✅ **Points System**: Earn points by completing tasks, accumulated points can be used for draws
+- ✅ **Wheel Spin**: Configurable wheel spin, support probability settings and prize restrictions
+- ✅ **Completion Rewards**: Complete 50%/75%/100% of tasks to earn additional point rewards
+- ✅ **Consecutive Completion Rewards**: Earn additional rewards for consecutive task completion
+- ✅ **Achievement Badges**: 50 different achievement badges to motivate children to keep improving
+- ✅ **History Records**: View daily task completion status and spin history
+- ✅ **Data Persistence**: All data is automatically saved locally, no need to worry about data loss
+
+### Motivation System
+- 🎯 Complete 50% of tasks: Extra reward +2 points
+- ⭐ Complete 75% of tasks: Extra reward +5 points
+- 🏆 Complete 100% of tasks: Extra reward +10 points
+- 📅 Consecutive completion: Weekly consecutive completion earns additional rewards
+- 🎰 Spin System: Spend points to participate in wheel spins and get surprise rewards
+
+## 🚀 Quick Start
+
+### How to Use
+1. Open the `index.html` file directly in your browser
+2. No installation required, pure web application
+3. Supports all modern browsers (Chrome, Firefox, Safari, Edge, etc.)
+
+### First Time Use
+1. After opening the page, click the **👤 User Management** button in the top right
+2. Add the first user (name, gender)
+3. Select that user as the current user
+4. Start using!
+
+## 📸 Screenshots
+
+![Main Interface](screenshots/main-page.png)
+
+*Main interface of the system, including wheel spin area, task management, points display and other features*
+
+## 📖 Usage Guide
+
+### 1. User Management
+
+#### Add User
+1. Click the **👤 User Management** button at the top of the page
+2. In the pop-up dialog, enter the user name
+3. Select gender (default: Female)
+4. Click the **Add User** button
+
+#### Switch User
+1. In the user management dialog, click the **Select** button in the user list
+2. The selected user will be displayed at the "Current User" area at the top of the page
+3. **Important**: You must select a user before performing any operations
+
+#### Edit/Delete User
+- Click the **✏️** button on the right side of the user item to edit user information
+- Click the **🗑️** button to delete a user (at least one user must be retained)
+
+### 2. Task Management
+
+#### Complete Tasks
+1. In the task list, find the task you want to complete
+2. Click the **○** button on the right side of the task, it will change to **✓**
+3. After the task is completed, you will automatically receive corresponding points
+
+#### Add Tasks
+1. Click the **+ Add Task** button in the top right of the task management area
+2. The new task will be added to the end of the list
+3. You can modify the task name and point value (default: 1 point)
+
+#### Modify Tasks
+- **Task Name**: Click directly on the task name to edit
+- **Point Value**: Click the point input box to modify (minimum 1 point)
+- **Delete Task**: Click the **×** button on the right side of the task (at least 1 task must be retained)
+
+#### View History
+1. In the "This Week's Progress" area, click any date in the calendar
+2. The task list will show the completion status for that date (read-only)
+3. Click the **Back to Today** button to switch back to today
+
+### 3. Points System
+
+#### Earn Points
+- **Complete Tasks**: Earn corresponding points for each completed task (default: 1 point)
+- **Completion Rewards**:
+  - Complete 50% of tasks: +2 points
+  - Complete 75% of tasks: +5 points
+  - Complete 100% of tasks: +10 points
+- **Consecutive Completion Rewards**: Earn additional rewards for consecutive task completion
+
+#### Spend Points
+- **Wheel Spin**: Default cost is 100 points (can be configured in the top right)
+- Cannot spin if points are insufficient
+
+#### Configure Spin Cost
+1. Click the **⚙️** button in the top right of the page
+2. Enter the new spin cost point value
+3. Click confirm to save
+
+### 4. Wheel Spin
+
+#### Spin the Wheel
+1. Ensure you have enough points (displayed in the top right)
+2. Click the **Start Spin** button below the wheel
+3. Wait for the wheel to finish spinning
+4. View the reward you received
+
+#### View Spin History
+1. Scroll to the "Achievement Badges" area at the bottom of the page
+2. Click the **📊 Statistics** button
+3. In the pop-up dialog, scroll down to view "🎰 Spin History"
+4. History is grouped by date, showing:
+   - Spin time
+   - Prize received
+   - Points spent
+
+#### Prize Restrictions (Advanced Feature)
+Some prizes can have restrictions:
+- **Annual Limit**: Can only be obtained once per year
+- **Monthly Limit**: Can only be obtained once per month
+- **Daily Limit**: Can only be obtained once per day
+
+Restricted prizes can be set in the prize configuration area.
+
+### 5. Achievement System
+
+#### View Achievements
+- View all achievements in the "🏆 Achievement Badges" area at the bottom of the page
+- Unlocked achievements will be highlighted
+- Locked achievements will be displayed in gray
+
+#### Achievement Types
+The system includes 50 different achievements, including:
+- Task completion related achievements (cumulative task completions)
+- Points related achievements (cumulative points earned, current points)
+- Consecutive completion achievements (consecutive completion days)
+- Single day complete all tasks achievements
+- Usage days achievements
+
+### 6. Statistics
+
+#### View Statistics
+1. Click the **📊 Statistics** button in the top right of the "Achievement Badges" area
+2. View the following statistics:
+   - Cumulative task completions
+   - Cumulative points earned
+   - Maximum consecutive days
+   - Current level
+   - Days with records
+   - Cumulative spins
+   - **Spin History** (detailed list)
+
+### 7. Calendar and History
+
+#### Using the Calendar
+1. In the "📅 History" area, use the **‹** and **›** buttons to switch months
+2. Click any date on the calendar
+3. View for that date:
+   - Task completion status
+   - Points earned
+   - List of completed tasks
+
+#### This Week's Progress
+- Shows daily task completion status for this week
+- Click a date to view detailed information for that day
+- Click **Back to Today** to switch back to today
+
+## 🖥️ Interface Introduction
+
+### Page Layout
+
+```
+┌─────────────────────────────────────────┐
+│  Title + User Management + Points       │
+├─────────────────────────────────────────┤
+│                                         │
+│           🎡 Wheel Spin Area             │
+│                                         │
+├─────────────────────────────────────────┤
+│  📋 Task Management                     │
+│  - Task List                            │
+│  - Today's Progress                     │
+│  - Completion Reward Hints              │
+│  - Consecutive Days                     │
+│  - This Week's Progress (Calendar)      │
+├─────────────────────────────────────────┤
+│  📅 History (Calendar)                  │
+├─────────────────────────────────────────┤
+│  🏆 Achievement Badges + Stats Button   │
+└─────────────────────────────────────────┘
+```
+
+### Main Area Descriptions
+
+1. **Top Navigation Bar**
+   - Current user display
+   - User management button
+   - Current points display
+   - Spin cost display
+   - Spin cost configuration button
+
+2. **Wheel Area**
+   - Colorful wheel (displays reward numbers)
+   - Spin button
+   - Spin result notification
+
+3. **Task Management Area**
+   - Task list (editable)
+   - Today's progress bar
+   - Completion reward hints
+   - Consecutive completion days
+   - This week's progress calendar
+
+4. **History Calendar**
+   - Month navigation
+   - Calendar grid
+   - Click date to view history
+
+5. **Achievement Badges Area**
+   - Achievement list
+   - Statistics button
+   - Clear data button
+
+## 🔧 Feature Details
+
+### Completion Reward Mechanism
+
+#### Reward Rules
+- **50% Complete**: Complete at least 50% of tasks, earn +2 points
+- **75% Complete**: Complete at least 75% of tasks, earn +5 points
+- **100% Complete**: Complete all tasks, earn +10 points
+
+#### Priority
+- If 100% complete, only give +10 points, no other rewards
+- If 75% complete, only give +5 points, no 50% reward
+- If 50% complete, give +2 points
+
+#### Reward Display
+Completion reward hints will be displayed below "Today's Progress":
+- 🎯 Complete 50% of tasks, extra reward +2 points
+- ⭐ Complete 75% of tasks, extra reward +5 points
+- 🏆 Complete all tasks, extra reward +10 points
+
+Completed reward items will show a ✅ mark.
+
+### Consecutive Completion Rewards
+
+- Weekly consecutive completion of all tasks earns additional rewards
+- More consecutive days = more rewards
+- Resets after interruption
+
+### Achievement System Details
+
+Achievements are divided into multiple categories:
+
+1. **Task Completion Achievements**: Cumulative task completions reach certain amounts
+2. **Points Achievements**: Cumulative points earned or current points held reach certain amounts
+3. **Consecutive Completion Achievements**: Consecutive task completion days reach certain amounts
+4. **Perfect Day Achievements**: Number of days completing all tasks in a single day
+5. **Usage Days Achievements**: Cumulative days using the system
+
+### Data Persistence
+
+- All data is automatically saved to browser's `localStorage`
+- Includes:
+  - User information
+  - Task lists
+  - Points data
+  - Completion history
+  - Spin history
+  - Achievement status
+  - Prize configuration
+
+### Clear Data
+
+⚠️ **Warning**: Clearing data will delete all records, including:
+- All user data
+- Task completion records
+- Points and statistics
+- Spin history
+- Achievement progress
+
+After clearing, all data will reset to default values:
+- Default points: 100
+- Default spin cost: 100 points
+
+## 💾 Data Information
+
+### Default Task List
+
+The system comes with 18 default tasks (1 point each):
+1. Complete school homework independently after school
+2. Complete 2 pages of English/math problems assigned by mom independently after school
+3. Complete 2 pages of English writing/dictation assigned by mom independently after school
+4. Read books independently for 30 minutes
+5. Help parents with housework independently
+6. 30 minutes of outdoor exercise daily
+7. Draw a picture/complete art creation
+8. Wake up, brush teeth, wash face, complete personal hygiene independently every morning
+9. Pack school bag and check books and items to bring daily
+10. Greet security guards/aunts/uncles/known friends politely with eye contact daily
+11. Tell dad or mom about today's class content after school
+12. Complete 2 pages of Chinese writing/dictation assigned by mom independently after school
+13. Memorize 10 new English words independently after school
+14. Memorize 5 Chinese idioms independently after school
+15. Memorize 1 ancient poem independently after school
+16. Learn about 1 history story independently and explain to dad or mom
+17. Attend English class independently, do preview and review in advance
+18. Return toys or books to their original places after use
+
+### Default Prize Configuration
+
+The system comes with multiple prizes, each with configurable probability.
+
+### User Data Independence
+
+- Each user has completely independent data:
+  - Task list (customizable)
+  - Points and statistics
+  - Completion history
+  - Spin history
+  - Achievement progress
+
+## ⚠️ Important Notes
+
+### Usage Limitations
+
+1. **Must Select User**: All operations (tasks, spins, etc.) require selecting a user first
+2. **Local Data Storage**: Data is saved in browser local storage, clearing browser data will cause data loss
+3. **Browser Compatibility**: Recommended to use modern browsers (Chrome, Firefox, Safari, Edge)
+
+### Operation Tips
+
+1. **Switch Date**: When viewing historical dates, the task list becomes read-only mode
+2. **Task Editing**: Tasks can only be edited when viewing today
+3. **Insufficient Points**: Cannot spin if points are insufficient, will show notification
+4. **Deletion Restrictions**: Must keep at least 1 user and 1 task
+
+### Data Backup
+
+To backup data:
+1. Open browser developer tools (F12)
+2. Go to Application/Storage tab
+3. Find Local Storage
+4. Export relevant data
+
+### Frequently Asked Questions
+
+**Q: How to reset a user's data?**  
+A: You can delete the user and re-add them in user management, or clear all data.
+
+**Q: Where to view spin history?**  
+A: Click the "📊 Statistics" button at the bottom of the page, scroll down in the pop-up dialog to see "🎰 Spin History".
+
+**Q: How to modify prize configuration?**  
+A: Prize configuration is hidden (can be displayed through developer tools), mainly used to set prize probability and restriction rules.
+
+**Q: Will data be lost?**  
+A: Data is saved in browser local storage, clearing browser cache or using private mode may cause data loss. Regular backup is recommended.
+
+## 📝 Update Log
+
+### Current Version Features
+- ✅ Multi-user management system
+- ✅ Task management and points system
+- ✅ Wheel spin functionality
+- ✅ Completion reward mechanism
+- ✅ Consecutive completion rewards
+- ✅ 50 achievement badges
+- ✅ History viewing
+- ✅ Spin history records
+- ✅ Calendar functionality
+- ✅ Statistics information
+- ✅ Responsive design
+
+## 📞 Technical Support
+
+If you have questions or suggestions, please check:
+1. Browser console for error messages (press F12 to open)
+2. Whether a user is selected
+3. Whether data is saved correctly
+
+---
+
+**Enjoy using!** 🎉
+
+---
+
 # 🎰 宝贝任务打卡 & 转盘抽奖系统
 
 一个专为儿童设计的任务管理和激励系统，通过完成任务获得积分，累积积分可以参与转盘抽奖，帮助培养孩子的自律性和学习习惯。
@@ -14,387 +416,387 @@
 
 ## ✨ 功能特点
 
-### 核心功能
-- ✅ **多用户管理**：支持多个孩子独立使用，每个用户的数据完全独立
-- ✅ **任务管理**：自定义任务列表，支持添加、删除、修改任务
-- ✅ **积分系统**：完成任务获得积分，累积积分可参与抽奖
-- ✅ **转盘抽奖**：可配置的转盘抽奖，支持概率设置和奖项限制
-- ✅ **完成度奖励**：完成50%/75%/100%任务获得额外积分奖励
-- ✅ **连续完成奖励**：连续完成任务可获得额外奖励
-- ✅ **成就徽章**：50个不同的成就徽章，激励孩子持续进步
-- ✅ **历史记录**：查看每日任务完成情况和抽奖历史
-- ✅ **数据持久化**：所有数据自动保存到本地，无需担心丢失
+### Core Features
+- ✅ **Multi-user Management**: Support multiple children to use independently, each user's data is completely independent
+- ✅ **Task Management**: Customizable task list, support adding, deleting, and modifying tasks
+- ✅ **Points System**: Earn points by completing tasks, accumulated points can be used for draws
+- ✅ **Wheel Spin**: Configurable wheel spin, support probability settings and prize restrictions
+- ✅ **Completion Rewards**: Complete 50%/75%/100% of tasks to earn additional point rewards
+- ✅ **Consecutive Completion Rewards**: Earn additional rewards for consecutive task completion
+- ✅ **Achievement Badges**: 50 different achievement badges to motivate children to keep improving
+- ✅ **History Records**: View daily task completion status and spin history
+- ✅ **Data Persistence**: All data is automatically saved locally, no need to worry about data loss
 
-### 激励机制
-- 🎯 完成50%任务：额外奖励 +2 积分
-- ⭐ 完成75%任务：额外奖励 +5 积分
-- 🏆 完成100%任务：额外奖励 +10 积分
-- 📅 连续完成任务：每周连续完成可获得额外奖励
-- 🎰 抽奖系统：消耗积分参与转盘抽奖，获得惊喜奖励
+### Motivation System
+- 🎯 Complete 50% of tasks: Extra reward +2 points
+- ⭐ Complete 75% of tasks: Extra reward +5 points
+- 🏆 Complete 100% of tasks: Extra reward +10 points
+- 📅 Consecutive completion: Weekly consecutive completion earns additional rewards
+- 🎰 Spin System: Spend points to participate in wheel spins and get surprise rewards
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 使用方式
-1. 直接在浏览器中打开 `index.html` 文件
-2. 无需安装任何软件，纯网页版应用
-3. 支持所有现代浏览器（Chrome、Firefox、Safari、Edge等）
+### How to Use
+1. Open the `index.html` file directly in your browser
+2. No installation required, pure web application
+3. Supports all modern browsers (Chrome, Firefox, Safari, Edge, etc.)
 
-### 首次使用
-1. 打开页面后，点击右上角的 **👤 用户管理** 按钮
-2. 添加第一个用户（姓名、性别）
-3. 选择该用户作为当前用户
-4. 开始使用！
+### First Time Use
+1. After opening the page, click the **👤 User Management** button in the top right
+2. Add the first user (name, gender)
+3. Select that user as the current user
+4. Start using!
 
-## 📸 截图展示
+## 📸 Screenshots
 
-![主界面截图](screenshots/main-page.png)
+![Main Interface](screenshots/main-page.png)
 
-*系统主界面，包含转盘抽奖区域、任务管理、积分显示等功能*
+*Main interface of the system, including wheel spin area, task management, points display and other features*
 
-## 📖 使用说明
+## 📖 Usage Guide
 
-### 1. 用户管理
+### 1. User Management
 
-#### 添加用户
-1. 点击页面顶部的 **👤 用户管理** 按钮
-2. 在弹出的对话框中，输入用户姓名
-3. 选择性别（默认：女）
-4. 点击 **添加用户** 按钮
+#### Add User
+1. Click the **👤 User Management** button at the top of the page
+2. In the pop-up dialog, enter the user name
+3. Select gender (default: Female)
+4. Click the **Add User** button
 
-#### 切换用户
-1. 在用户管理对话框中，点击用户列表中的 **选择** 按钮
-2. 选中的用户会显示在页面顶部"当前用户"处
-3. **重要**：必须先选择用户才能进行任何操作
+#### Switch User
+1. In the user management dialog, click the **Select** button in the user list
+2. The selected user will be displayed at the "Current User" area at the top of the page
+3. **Important**: You must select a user before performing any operations
 
-#### 编辑/删除用户
-- 点击用户项右侧的 **✏️** 按钮可以编辑用户信息
-- 点击 **🗑️** 按钮可以删除用户（至少保留一个用户）
+#### Edit/Delete User
+- Click the **✏️** button on the right side of the user item to edit user information
+- Click the **🗑️** button to delete a user (at least one user must be retained)
 
-### 2. 任务管理
+### 2. Task Management
 
-#### 完成任务
-1. 在任务列表中，找到要完成的任务
-2. 点击任务右侧的 **○** 按钮，按钮会变成 **✓**
-3. 任务完成后，会自动获得对应积分
+#### Complete Tasks
+1. In the task list, find the task you want to complete
+2. Click the **○** button on the right side of the task, it will change to **✓**
+3. After the task is completed, you will automatically receive corresponding points
 
-#### 添加任务
-1. 点击任务管理区域右上角的 **+ 添加任务** 按钮
-2. 新任务会添加到列表末尾
-3. 可以修改任务名称和积分值（默认1积分）
+#### Add Tasks
+1. Click the **+ Add Task** button in the top right of the task management area
+2. The new task will be added to the end of the list
+3. You can modify the task name and point value (default: 1 point)
 
-#### 修改任务
-- **任务名称**：直接点击任务名称进行编辑
-- **积分值**：点击积分输入框进行修改（最小1积分）
-- **删除任务**：点击任务右侧的 **×** 按钮（至少保留1个任务）
+#### Modify Tasks
+- **Task Name**: Click directly on the task name to edit
+- **Point Value**: Click the point input box to modify (minimum 1 point)
+- **Delete Task**: Click the **×** button on the right side of the task (at least 1 task must be retained)
 
-#### 查看历史记录
-1. 在"本周进度"区域，点击日历中的任意日期
-2. 任务列表会显示该日期的完成状态（只读）
-3. 点击 **返回今天** 按钮可切换回今天
+#### View History
+1. In the "This Week's Progress" area, click any date in the calendar
+2. The task list will show the completion status for that date (read-only)
+3. Click the **Back to Today** button to switch back to today
 
-### 3. 积分系统
+### 3. Points System
 
-#### 获得积分
-- **完成任务**：每个任务完成后获得对应积分（默认1积分）
-- **完成度奖励**：
-  - 完成50%任务：+2积分
-  - 完成75%任务：+5积分
-  - 完成100%任务：+10积分
-- **连续完成奖励**：连续完成任务可获得额外奖励
+#### Earn Points
+- **Complete Tasks**: Earn corresponding points for each completed task (default: 1 point)
+- **Completion Rewards**:
+  - Complete 50% of tasks: +2 points
+  - Complete 75% of tasks: +5 points
+  - Complete 100% of tasks: +10 points
+- **Consecutive Completion Rewards**: Earn additional rewards for consecutive task completion
 
-#### 消耗积分
-- **转盘抽奖**：默认消耗100积分（可在右上角配置）
-- 积分不足时无法抽奖
+#### Spend Points
+- **Wheel Spin**: Default cost is 100 points (can be configured in the top right)
+- Cannot spin if points are insufficient
 
-#### 配置抽奖消耗
-1. 点击页面右上角的 **⚙️** 按钮
-2. 输入新的抽奖消耗积分值
-3. 点击确认保存
+#### Configure Spin Cost
+1. Click the **⚙️** button in the top right of the page
+2. Enter the new spin cost point value
+3. Click confirm to save
 
-### 4. 转盘抽奖
+### 4. Wheel Spin
 
-#### 进行抽奖
-1. 确保当前积分足够（显示在右上角）
-2. 点击转盘下方的 **开始抽奖** 按钮
-3. 等待转盘转动完成
-4. 查看获得的奖励
+#### Spin the Wheel
+1. Ensure you have enough points (displayed in the top right)
+2. Click the **Start Spin** button below the wheel
+3. Wait for the wheel to finish spinning
+4. View the reward you received
 
-#### 查看抽奖历史
-1. 滚动到页面底部的"成就徽章"区域
-2. 点击 **📊 统计** 按钮
-3. 在弹出的对话框中，向下滚动查看"🎰 抽奖历史记录"
-4. 历史记录按日期分组，显示：
-   - 抽奖时间
-   - 获得的奖品
-   - 消耗的积分
+#### View Spin History
+1. Scroll to the "Achievement Badges" area at the bottom of the page
+2. Click the **📊 Statistics** button
+3. In the pop-up dialog, scroll down to view "🎰 Spin History"
+4. History is grouped by date, showing:
+   - Spin time
+   - Prize received
+   - Points spent
 
-#### 奖项限制（高级功能）
-某些奖项可以设置限制：
-- **年度限制**：一年内只能获得一次
-- **月度限制**：一个月内只能获得一次
-- **每日限制**：一天内只能获得一次
+#### Prize Restrictions (Advanced Feature)
+Some prizes can have restrictions:
+- **Annual Limit**: Can only be obtained once per year
+- **Monthly Limit**: Can only be obtained once per month
+- **Daily Limit**: Can only be obtained once per day
 
-限制奖项在奖品配置区域可以设置。
+Restricted prizes can be set in the prize configuration area.
 
-### 5. 成就系统
+### 5. Achievement System
 
-#### 查看成就
-- 在页面底部的"🏆 成就徽章"区域查看所有成就
-- 已解锁的成就会高亮显示
-- 未解锁的成就显示为灰色
+#### View Achievements
+- View all achievements in the "🏆 Achievement Badges" area at the bottom of the page
+- Unlocked achievements will be highlighted
+- Locked achievements will be displayed in gray
 
-#### 成就类型
-系统包含50个不同的成就，包括：
-- 任务完成相关成就（累计完成任务数）
-- 积分相关成就（累计获得积分、当前积分）
-- 连续完成成就（连续完成天数）
-- 单日完成所有任务成就
-- 使用天数成就
+#### Achievement Types
+The system includes 50 different achievements, including:
+- Task completion related achievements (cumulative task completions)
+- Points related achievements (cumulative points earned, current points)
+- Consecutive completion achievements (consecutive completion days)
+- Single day complete all tasks achievements
+- Usage days achievements
 
-### 6. 统计信息
+### 6. Statistics
 
-#### 查看统计
-1. 点击"成就徽章"区域右上角的 **📊 统计** 按钮
-2. 查看以下统计信息：
-   - 累计完成任务次数
-   - 累计获得积分
-   - 最高连续天数
-   - 当前等级
-   - 打开记录天数
-   - 累计抽奖次数
-   - **抽奖历史记录**（详细列表）
+#### View Statistics
+1. Click the **📊 Statistics** button in the top right of the "Achievement Badges" area
+2. View the following statistics:
+   - Cumulative task completions
+   - Cumulative points earned
+   - Maximum consecutive days
+   - Current level
+   - Days with records
+   - Cumulative spins
+   - **Spin History** (detailed list)
 
-### 7. 日历和历史记录
+### 7. Calendar and History
 
-#### 使用日历
-1. 在"📅 历史记录"区域，使用 **‹** 和 **›** 按钮切换月份
-2. 点击日历上的任意日期
-3. 查看该日期的：
-   - 任务完成情况
-   - 获得的积分
-   - 完成的任务列表
+#### Using the Calendar
+1. In the "📅 History" area, use the **‹** and **›** buttons to switch months
+2. Click any date on the calendar
+3. View for that date:
+   - Task completion status
+   - Points earned
+   - List of completed tasks
 
-#### 本周进度
-- 显示本周每天的任务完成情况
-- 点击日期可查看该天的详细情况
-- 点击 **返回今天** 可切换回今天
+#### This Week's Progress
+- Shows daily task completion status for this week
+- Click a date to view detailed information for that day
+- Click **Back to Today** to switch back to today
 
-## 🖥️ 界面介绍
+## 🖥️ Interface Introduction
 
-### 页面布局
+### Page Layout
 
 ```
 ┌─────────────────────────────────────────┐
-│  标题 + 用户管理 + 积分显示             │
+│  Title + User Management + Points       │
 ├─────────────────────────────────────────┤
 │                                         │
-│           🎡 转盘抽奖区域                │
+│           🎡 Wheel Spin Area             │
 │                                         │
 ├─────────────────────────────────────────┤
-│  📋 任务管理                            │
-│  - 任务列表                             │
-│  - 今日进度                             │
-│  - 完成度奖励提示                       │
-│  - 连续完成天数                         │
-│  - 本周进度（日历）                     │
+│  📋 Task Management                     │
+│  - Task List                            │
+│  - Today's Progress                     │
+│  - Completion Reward Hints              │
+│  - Consecutive Days                     │
+│  - This Week's Progress (Calendar)      │
 ├─────────────────────────────────────────┤
-│  📅 历史记录（日历）                    │
+│  📅 History (Calendar)                  │
 ├─────────────────────────────────────────┤
-│  🏆 成就徽章 + 统计按钮                 │
+│  🏆 Achievement Badges + Stats Button   │
 └─────────────────────────────────────────┘
 ```
 
-### 主要区域说明
+### Main Area Descriptions
 
-1. **顶部导航栏**
-   - 当前用户显示
-   - 用户管理按钮
-   - 当前积分显示
-   - 抽奖消耗积分显示
-   - 抽奖消耗配置按钮
+1. **Top Navigation Bar**
+   - Current user display
+   - User management button
+   - Current points display
+   - Spin cost display
+   - Spin cost configuration button
 
-2. **转盘区域**
-   - 彩色转盘（显示奖励编号）
-   - 抽奖按钮
-   - 抽奖结果提示
+2. **Wheel Area**
+   - Colorful wheel (displays reward numbers)
+   - Spin button
+   - Spin result notification
 
-3. **任务管理区域**
-   - 任务列表（可编辑）
-   - 今日进度条
-   - 完成度奖励提示
-   - 连续完成天数
-   - 本周进度日历
+3. **Task Management Area**
+   - Task list (editable)
+   - Today's progress bar
+   - Completion reward hints
+   - Consecutive completion days
+   - This week's progress calendar
 
-4. **历史记录日历**
-   - 月份导航
-   - 日历网格
-   - 点击日期查看历史
+4. **History Calendar**
+   - Month navigation
+   - Calendar grid
+   - Click date to view history
 
-5. **成就徽章区域**
-   - 成就列表
-   - 统计按钮
-   - 清除数据按钮
+5. **Achievement Badges Area**
+   - Achievement list
+   - Statistics button
+   - Clear data button
 
-## 🔧 功能详解
+## 🔧 Feature Details
 
-### 完成度奖励机制
+### Completion Reward Mechanism
 
-#### 奖励规则
-- **50%完成**：完成至少50%的任务，获得+2积分
-- **75%完成**：完成至少75%的任务，获得+5积分
-- **100%完成**：完成所有任务，获得+10积分
+#### Reward Rules
+- **50% Complete**: Complete at least 50% of tasks, earn +2 points
+- **75% Complete**: Complete at least 75% of tasks, earn +5 points
+- **100% Complete**: Complete all tasks, earn +10 points
 
-#### 优先级
-- 如果完成100%，只给+10积分，不给其他奖励
-- 如果完成75%，只给+5积分，不给50%奖励
-- 如果完成50%，给+2积分
+#### Priority
+- If 100% complete, only give +10 points, no other rewards
+- If 75% complete, only give +5 points, no 50% reward
+- If 50% complete, give +2 points
 
-#### 奖励显示
-在"今日进度"下方会显示可获得的完成度奖励提示：
-- 🎯 完成50%任务，额外奖励 +2 积分
-- ⭐ 完成75%任务，额外奖励 +5 积分
-- 🏆 完成所有任务，额外奖励 +10 积分
+#### Reward Display
+Completion reward hints will be displayed below "Today's Progress":
+- 🎯 Complete 50% of tasks, extra reward +2 points
+- ⭐ Complete 75% of tasks, extra reward +5 points
+- 🏆 Complete all tasks, extra reward +10 points
 
-已完成奖励的项目会显示 ✅ 标记。
+Completed reward items will show a ✅ mark.
 
-### 连续完成奖励
+### Consecutive Completion Rewards
 
-- 每周连续完成所有任务可获得额外奖励
-- 连续天数越多，奖励越多
-- 中断后重新开始计算
+- Weekly consecutive completion of all tasks earns additional rewards
+- More consecutive days = more rewards
+- Resets after interruption
 
-### 成就系统详解
+### Achievement System Details
 
-成就分为多个类别：
+Achievements are divided into multiple categories:
 
-1. **任务完成成就**：累计完成任务次数达到一定数量
-2. **积分成就**：累计获得或当前持有的积分达到一定数量
-3. **连续完成成就**：连续完成任务的天数达到一定数量
-4. **完美日成就**：单日完成所有任务的次数
-5. **使用天数成就**：累计使用系统的天数
+1. **Task Completion Achievements**: Cumulative task completions reach certain amounts
+2. **Points Achievements**: Cumulative points earned or current points held reach certain amounts
+3. **Consecutive Completion Achievements**: Consecutive task completion days reach certain amounts
+4. **Perfect Day Achievements**: Number of days completing all tasks in a single day
+5. **Usage Days Achievements**: Cumulative days using the system
 
-### 数据持久化
+### Data Persistence
 
-- 所有数据自动保存到浏览器的 `localStorage`
-- 包括：
-  - 用户信息
-  - 任务列表
-  - 积分数据
-  - 完成历史
-  - 抽奖历史
-  - 成就状态
-  - 奖品配置
+- All data is automatically saved to browser's `localStorage`
+- Includes:
+  - User information
+  - Task lists
+  - Points data
+  - Completion history
+  - Spin history
+  - Achievement status
+  - Prize configuration
 
-### 清除数据
+### Clear Data
 
-⚠️ **警告**：清除数据会删除所有记录，包括：
-- 所有用户数据
-- 任务完成记录
-- 积分和统计
-- 抽奖历史
-- 成就进度
+⚠️ **Warning**: Clearing data will delete all records, including:
+- All user data
+- Task completion records
+- Points and statistics
+- Spin history
+- Achievement progress
 
-清除后，所有数据会重置为默认值：
-- 默认积分：100
-- 默认抽奖消耗：100积分
+After clearing, all data will reset to default values:
+- Default points: 100
+- Default spin cost: 100 points
 
-## 💾 数据说明
+## 💾 Data Information
 
-### 默认任务列表
+### Default Task List
 
-系统预置了18个默认任务（每个1积分）：
-1. 放学回家自己主动完成学校作业
-2. 放学回家自己主动完成妈妈留的英文数学2页题
-3. 放学回家自己主动完成妈妈留的英文2页书写/默写
-4. 自己主动阅读30分钟书籍
-5. 自己主动帮助爸爸妈妈做家务
-6. 每天户外运动30分钟
-7. 画一幅画/完成艺术创作
-8. 每天早晨自己起床、刷牙、洗脸、完成个人卫生
-9. 每天收拾好书包，检查书籍和需要携带的物品
-10. 每天遇到保安叔叔/阿姨/认识的朋友可以很有礼貌的看着对方的眼睛打招呼
-11. 放学回家可以给爸爸或妈妈讲述今天上课的内容
-12. 放学回家自己主动完成妈妈留的中文2页书写/默写
-13. 放学回家自己主动背10个新的英文单词
-14. 放学回家自己主动背5个中文成语
-15. 放学回家自己主动背1个古诗
-16. 自己主动了解1个历史故事，并给爸爸或妈妈讲解
-17. 自己主动上英文课，提前做预习并进行复习
-18. 自己的玩具或者书用完可以归还到原来的位置
+The system comes with 18 default tasks (1 point each):
+1. Complete school homework independently after school
+2. Complete 2 pages of English/math problems assigned by mom independently after school
+3. Complete 2 pages of English writing/dictation assigned by mom independently after school
+4. Read books independently for 30 minutes
+5. Help parents with housework independently
+6. 30 minutes of outdoor exercise daily
+7. Draw a picture/complete art creation
+8. Wake up, brush teeth, wash face, complete personal hygiene independently every morning
+9. Pack school bag and check books and items to bring daily
+10. Greet security guards/aunts/uncles/known friends politely with eye contact daily
+11. Tell dad or mom about today's class content after school
+12. Complete 2 pages of Chinese writing/dictation assigned by mom independently after school
+13. Memorize 10 new English words independently after school
+14. Memorize 5 Chinese idioms independently after school
+15. Memorize 1 ancient poem independently after school
+16. Learn about 1 history story independently and explain to dad or mom
+17. Attend English class independently, do preview and review in advance
+18. Return toys or books to their original places after use
 
-### 默认奖品配置
+### Default Prize Configuration
 
-系统预置了多个奖品，每个奖品都有可配置的概率。
+The system comes with multiple prizes, each with configurable probability.
 
-### 用户数据独立性
+### User Data Independence
 
-- 每个用户拥有完全独立的数据：
-  - 任务列表（可自定义）
-  - 积分和统计
-  - 完成历史
-  - 抽奖历史
-  - 成就进度
+- Each user has completely independent data:
+  - Task list (customizable)
+  - Points and statistics
+  - Completion history
+  - Spin history
+  - Achievement progress
 
-## ⚠️ 注意事项
+## ⚠️ Important Notes
 
-### 使用限制
+### Usage Limitations
 
-1. **必须选择用户**：所有操作（任务、抽奖等）都需要先选择用户
-2. **数据本地存储**：数据保存在浏览器本地，清除浏览器数据会导致数据丢失
-3. **浏览器兼容性**：建议使用现代浏览器（Chrome、Firefox、Safari、Edge）
+1. **Must Select User**: All operations (tasks, spins, etc.) require selecting a user first
+2. **Local Data Storage**: Data is saved in browser local storage, clearing browser data will cause data loss
+3. **Browser Compatibility**: Recommended to use modern browsers (Chrome, Firefox, Safari, Edge)
 
-### 操作提示
+### Operation Tips
 
-1. **切换日期**：在查看历史日期时，任务列表会变为只读模式
-2. **任务编辑**：只有查看今天时才能编辑任务
-3. **积分不足**：积分不足时无法抽奖，会显示提示信息
-4. **删除限制**：至少保留1个用户和1个任务
+1. **Switch Date**: When viewing historical dates, the task list becomes read-only mode
+2. **Task Editing**: Tasks can only be edited when viewing today
+3. **Insufficient Points**: Cannot spin if points are insufficient, will show notification
+4. **Deletion Restrictions**: Must keep at least 1 user and 1 task
 
-### 数据备份
+### Data Backup
 
-如需备份数据：
-1. 打开浏览器的开发者工具（F12）
-2. 进入 Application/Storage 标签
-3. 找到 Local Storage
-4. 导出相关数据
+To backup data:
+1. Open browser developer tools (F12)
+2. Go to Application/Storage tab
+3. Find Local Storage
+4. Export relevant data
 
-### 常见问题
+### Frequently Asked Questions
 
-**Q: 如何重置某个用户的数据？**  
-A: 可以在用户管理中选择删除用户并重新添加，或者清除所有数据。
+**Q: How to reset a user's data?**  
+A: You can delete the user and re-add them in user management, or clear all data.
 
-**Q: 抽奖历史在哪里查看？**  
-A: 点击页面底部的"📊 统计"按钮，在弹出的对话框中向下滚动，可以看到"🎰 抽奖历史记录"。
+**Q: Where to view spin history?**  
+A: Click the "📊 Statistics" button at the bottom of the page, scroll down in the pop-up dialog to see "🎰 Spin History".
 
-**Q: 如何修改奖品配置？**  
-A: 奖品配置功能已隐藏（可通过开发者工具显示），主要用于设置奖品概率和限制规则。
+**Q: How to modify prize configuration?**  
+A: Prize configuration is hidden (can be displayed through developer tools), mainly used to set prize probability and restriction rules.
 
-**Q: 数据会丢失吗？**  
-A: 数据保存在浏览器本地，清除浏览器缓存或使用隐私模式可能导致数据丢失。建议定期备份。
+**Q: Will data be lost?**  
+A: Data is saved in browser local storage, clearing browser cache or using private mode may cause data loss. Regular backup is recommended.
 
-## 📝 更新日志
+## 📝 Update Log
 
-### 当前版本功能
-- ✅ 多用户管理系统
-- ✅ 任务管理和积分系统
-- ✅ 转盘抽奖功能
-- ✅ 完成度奖励机制
-- ✅ 连续完成奖励
-- ✅ 50个成就徽章
-- ✅ 历史记录查看
-- ✅ 抽奖历史记录
-- ✅ 日历功能
-- ✅ 统计信息
-- ✅ 响应式设计
+### Current Version Features
+- ✅ Multi-user management system
+- ✅ Task management and points system
+- ✅ Wheel spin functionality
+- ✅ Completion reward mechanism
+- ✅ Consecutive completion rewards
+- ✅ 50 achievement badges
+- ✅ History viewing
+- ✅ Spin history records
+- ✅ Calendar functionality
+- ✅ Statistics information
+- ✅ Responsive design
 
-## 📞 技术支持
+## 📞 Technical Support
 
-如有问题或建议，请检查：
-1. 浏览器控制台是否有错误信息（按F12打开）
-2. 是否选择了用户
-3. 数据是否正确保存
+If you have questions or suggestions, please check:
+1. Browser console for error messages (press F12 to open)
+2. Whether a user is selected
+3. Whether data is saved correctly
 
 ---
 
-**祝使用愉快！** 🎉
+**Enjoy using!** 🎉
 
