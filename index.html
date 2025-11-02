@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转盘抽奖程序</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎰 宝贝任务打卡 & 转盘抽奖系统</h1>
+            
+            <!-- 用户管理和积分显示区域 -->
+            <div class="header-info-bar">
+                <!-- 用户管理区域 -->
+                <div class="user-management">
+                    <div class="current-user-display">
+                        <span class="user-label">当前用户：</span>
+                        <span class="current-user-name" id="currentUserName">未选择</span>
+                    </div>
+                    <button id="userManageBtn" class="user-manage-btn">👤 用户管理</button>
+                </div>
+                
+                <!-- 积分显示 -->
+                <div class="points-display">
+                    <div class="points-info">
+                        <span class="points-label">当前积分：</span>
+                        <span class="points-value" id="currentPoints">0</span>
+                    </div>
+                    <div class="spin-cost-info">
+                        <span>抽奖消耗：</span>
+                        <span id="spinCost">10</span> 积分
+                    </div>
+                    <button id="costConfigBtn" class="cost-config-btn" title="配置抽奖消耗积分">⚙️</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <!-- 转盘区域 -->
+            <div class="wheel-section">
+                <div class="wheel-container">
+                    <canvas id="wheelCanvas" width="600" height="600"></canvas>
+                    <div class="wheel-pointer"></div>
+                    <button id="spinBtn" class="spin-button">开始抽奖 (<span id="spinCostDisplay">10</span> 积分)</button>
+                </div>
+                <div id="result" class="result-display"></div>
+            </div>
+            
+            <!-- 任务管理区域 -->
+            <div class="task-section">
+                <div class="task-header">
+                    <h2>📋 任务管理</h2>
+                    <button id="addTaskBtn" class="add-task-btn">+ 添加任务</button>
+                </div>
+                
+                <div class="task-list" id="taskList">
+                    <!-- 任务列表将通过JavaScript动态生成 -->
+                </div>
+                
+                <div class="today-progress">
+                    <div class="progress-header">
+                        <span>今日进度</span>
+                        <span id="todayProgress">0 / 0</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <!-- 完成度奖励提示 -->
+                    <div class="completion-bonus-info" id="completionBonusInfo">
+                        <div class="bonus-item" id="halfBonusItem" style="display: none;">
+                            <span class="bonus-icon">🎯</span>
+                            <span class="bonus-text">完成50%任务，额外奖励 <span class="bonus-points">+2</span> 积分</span>
+                        </div>
+                        <div class="bonus-item" id="threeQuarterBonusItem" style="display: none;">
+                            <span class="bonus-icon">⭐</span>
+                            <span class="bonus-text">完成75%任务，额外奖励 <span class="bonus-points">+5</span> 积分</span>
+                        </div>
+                        <div class="bonus-item" id="fullBonusItem" style="display: none;">
+                            <span class="bonus-icon">🏆</span>
+                            <span class="bonus-text">完成所有任务，额外奖励 <span class="bonus-points">+10</span> 积分</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="streak-info">
+                    <div class="streak-display">
+                        <span>连续完成：</span>
+                        <span id="streakDays">0</span> 天
+                        <span class="streak-bonus" id="streakBonus">+0 积分奖励</span>
+                    </div>
+                    <div class="week-progress">
+                        <div class="week-progress-header">
+                            <span>本周进度：</span>
+                            <span class="viewing-date-indicator" id="viewingDateIndicator"></span>
+                            <button id="backToTodayBtn" class="back-to-today-btn" style="display: none;">返回今天</button>
+                        </div>
+                        <div class="week-days" id="weekDays"></div>
+                    </div>
+                </div>
+                
+                <!-- 日历区域 -->
+                <div class="calendar-section">
+                    <div class="calendar-header">
+                        <span>📅 历史记录</span>
+                        <button id="prevMonthBtn" class="month-nav-btn">‹</button>
+                        <span class="current-month" id="currentMonth"></span>
+                        <button id="nextMonthBtn" class="month-nav-btn">›</button>
+                    </div>
+                    <div class="calendar-grid" id="calendarGrid">
+                        <!-- 日历将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+                
+                <div class="achievements-section">
+                    <div class="achievements-header">
+                        <span>🏆 成就徽章</span>
+                        <div class="header-buttons">
+                            <button id="showStatsBtn" class="stats-btn">📊 统计</button>
+                            <button id="clearDataBtn" class="clear-data-btn" title="清除所有数据">🗑️ 清除数据</button>
+                        </div>
+                    </div>
+                    <div class="achievements-list" id="achievementsList">
+                        <!-- 成就将通过JavaScript动态生成 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 配置区域 - 隐藏 -->
+            <div class="config-section" style="display: none;">
+                <div class="config-header">
+                    <h2>奖品配置</h2>
+                    <button id="resetBtn" class="reset-button">重置默认</button>
+                </div>
+                
+                <div class="prize-list" id="prizeList">
+                    <!-- 奖品项将通过JavaScript动态生成 -->
+                </div>
+
+                <button id="addPrizeBtn" class="add-button">+ 添加奖品</button>
+                
+                <div class="probability-info">
+                    <div class="total-probability">
+                        总概率: <span id="totalProbability">100</span>%
+                    </div>
+                    <div id="probabilityWarning" class="warning"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 庆祝动画 -->
+    <div id="celebration" class="celebration">
+        <div class="celebration-content">
+            <div class="celebration-icon">🎉</div>
+            <div class="celebration-text"></div>
+            <div class="celebration-points"></div>
+        </div>
+    </div>
+    
+    <!-- 清除数据确认对话框 -->
+    <div id="clearDataModal" class="cost-modal">
+        <div class="cost-modal-content">
+            <h3>⚠️ 确认清除数据</h3>
+            <p style="color: #666; margin: 20px 0; line-height: 1.6;">
+                此操作将清除所有数据，包括：<br>
+                • 任务列表<br>
+                • 积分和统计数据<br>
+                • 完成记录和连续天数<br>
+                • 成就徽章<br>
+                <strong style="color: #ff4757;">此操作不可恢复！</strong>
+            </p>
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="cancelClearBtn">取消</button>
+                <button class="confirm-btn clear-confirm-btn" id="confirmClearBtn">确认清除</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 统计对话框 -->
+    <div id="statsModal" class="cost-modal">
+        <div class="cost-modal-content">
+            <h3>📊 成就统计</h3>
+            <div class="stats-content">
+                <div class="stat-item">
+                    <span class="stat-label">累计完成任务：</span>
+                    <span class="stat-value" id="totalTasksCompleted">0</span> 次
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">累计获得积分：</span>
+                    <span class="stat-value" id="totalPointsEarned">0</span> 分
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">最高连续天数：</span>
+                    <span class="stat-value" id="maxStreakDays">0</span> 天
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">当前等级：</span>
+                    <span class="stat-value" id="currentLevel">新手</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">打开记录：</span>
+                    <span class="stat-value" id="openDays">0</span> 天
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">累计抽奖次数：</span>
+                    <span class="stat-value" id="totalSpins">0</span> 次
+                </div>
+            </div>
+            
+            <!-- 抽奖历史记录 -->
+            <div class="lottery-history-section">
+                <h4 style="margin-top: 20px; margin-bottom: 10px; color: #667eea;">🎰 抽奖历史记录</h4>
+                <div class="lottery-history-container" id="lotteryHistoryContainer">
+                    <!-- 历史记录将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="cost-modal-buttons">
+                <button class="confirm-btn" id="closeStatsBtn">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 用户管理对话框 -->
+    <div id="userManageModal" class="cost-modal">
+        <div class="cost-modal-content" style="max-width: 600px;">
+            <h3>👤 用户管理</h3>
+            
+            <!-- 添加新用户 -->
+            <div class="add-user-section">
+                <h4>➕ 添加新用户</h4>
+                <div class="add-user-form">
+                    <div class="form-group">
+                        <label for="newUserName">姓名</label>
+                        <input type="text" id="newUserName" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newUserGender">性别</label>
+                        <select id="newUserGender">
+                            <option value="女" selected>女</option>
+                            <option value="男">男</option>
+                        </select>
+                    </div>
+                    <button id="addUserBtn" class="confirm-btn">➕ 添加</button>
+                </div>
+            </div>
+            
+            <!-- 用户列表 -->
+            <div class="user-list-section">
+                <h4>👥 用户列表</h4>
+                <div class="user-list" id="userList">
+                    <!-- 用户列表将通过JavaScript动态生成 -->
+                </div>
+            </div>
+            
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="closeUserManageBtn">关闭</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑用户对话框 -->
+    <div id="editUserModal" class="cost-modal">
+        <div class="cost-modal-content" style="max-width: 500px;">
+            <h3>✏️ 编辑用户信息</h3>
+            
+            <div class="add-user-section">
+                <div class="add-user-form">
+                    <div class="form-group">
+                        <label for="editUserName">姓名</label>
+                        <input type="text" id="editUserName" placeholder="请输入姓名" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editUserGender">性别</label>
+                        <select id="editUserGender">
+                            <option value="女">女</option>
+                            <option value="男">男</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="cancelEditBtn">取消</button>
+                <button class="confirm-btn" id="confirmEditBtn">确认修改</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 配置抽奖消耗对话框 -->
+    <div id="costModal" class="cost-modal">
+        <div class="cost-modal-content">
+            <h3>配置抽奖消耗积分</h3>
+            <input type="number" id="costInput" min="1" placeholder="请输入消耗的积分数量">
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="cancelCostBtn">取消</button>
+                <button class="confirm-btn" id="confirmCostBtn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
