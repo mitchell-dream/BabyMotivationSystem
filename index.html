@@ -32,6 +32,7 @@
                         <span>抽奖消耗：</span>
                         <span id="spinCost">10</span> 积分
                     </div>
+                    <button id="adjustPointsBtn" class="adjust-points-btn" title="调整">📊</button>
                     <button id="costConfigBtn" class="cost-config-btn" title="配置抽奖消耗积分">⚙️</button>
                 </div>
             </div>
@@ -297,6 +298,46 @@
             <div class="cost-modal-buttons">
                 <button class="cancel-btn" id="cancelCostBtn">取消</button>
                 <button class="confirm-btn" id="confirmCostBtn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 积分调整密码验证对话框 -->
+    <div id="adjustPointsPasswordModal" class="cost-modal">
+        <div class="cost-modal-content">
+            <h3>🔒 验证身份</h3>
+            <p style="color: #666; margin-bottom: 15px; font-size: 0.9rem;">请输入密码以调整积分</p>
+            <input type="password" id="adjustPasswordInput" placeholder="请输入密码" autocomplete="off" style="width: 100%; padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; margin-bottom: 10px;">
+            <div id="passwordError" style="color: #ff4757; font-size: 0.85rem; margin-bottom: 15px; min-height: 20px; display: none; text-align: center;">密码错误，请重试</div>
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="cancelPasswordBtn">取消</button>
+                <button class="confirm-btn" id="confirmPasswordBtn">确认</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 积分调整对话框 -->
+    <div id="adjustPointsModal" class="cost-modal">
+        <div class="cost-modal-content">
+            <h3>调整积分</h3>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 8px; color: #666; font-weight: 500;">当前积分：<span id="currentPointsDisplay" style="color: #667eea; font-weight: bold;">0</span></label>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 8px; color: #666; font-weight: 500;">调整方式：</label>
+                <select id="adjustType" style="width: 100%; padding: 10px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem;">
+                    <option value="set">设置为</option>
+                    <option value="add">增加</option>
+                    <option value="subtract">减少</option>
+                </select>
+            </div>
+            <input type="number" id="pointsInput" min="0" placeholder="请输入积分数量" style="width: 100%; padding: 12px; border: 2px solid #dee2e6; border-radius: 8px; font-size: 1rem; margin-bottom: 15px;">
+            <div id="pointsPreview" style="padding: 10px; background: #f8f9fa; border-radius: 8px; margin-bottom: 15px; color: #666; font-size: 0.9rem;">
+                调整后积分：<span id="previewPoints" style="color: #667eea; font-weight: bold;">0</span>
+            </div>
+            <div class="cost-modal-buttons">
+                <button class="cancel-btn" id="cancelAdjustBtn">取消</button>
+                <button class="confirm-btn" id="confirmAdjustBtn">确认</button>
             </div>
         </div>
     </div>

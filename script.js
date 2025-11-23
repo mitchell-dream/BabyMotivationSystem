@@ -159,9 +159,24 @@ function initEventListeners() {
     document.getElementById('costConfigBtn').addEventListener('click', showCostModal);
     document.getElementById('confirmCostBtn').addEventListener('click', confirmCostChange);
     document.getElementById('cancelCostBtn').addEventListener('click', hideCostModal);
+    document.getElementById('adjustPointsBtn').addEventListener('click', showAdjustPointsPasswordModal);
+    document.getElementById('confirmAdjustBtn').addEventListener('click', confirmAdjustPoints);
+    document.getElementById('cancelAdjustBtn').addEventListener('click', hideAdjustPointsModal);
+    document.getElementById('confirmPasswordBtn').addEventListener('click', confirmAdjustPassword);
+    document.getElementById('cancelPasswordBtn').addEventListener('click', hideAdjustPointsPasswordModal);
     document.getElementById('costModal').addEventListener('click', (e) => {
         if (e.target.id === 'costModal') {
             hideCostModal();
+        }
+    });
+    document.getElementById('adjustPointsModal').addEventListener('click', (e) => {
+        if (e.target.id === 'adjustPointsModal') {
+            hideAdjustPointsModal();
+        }
+    });
+    document.getElementById('adjustPointsPasswordModal').addEventListener('click', (e) => {
+        if (e.target.id === 'adjustPointsPasswordModal') {
+            hideAdjustPointsPasswordModal();
         }
     });
     
@@ -171,6 +186,42 @@ function initEventListeners() {
             confirmCostChange();
         }
     });
+    document.getElementById('pointsInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            confirmAdjustPoints();
+        }
+    });
+    document.getElementById('adjustPasswordInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            confirmAdjustPassword();
+        }
+    });
+    // 积分调整实时预览
+    const pointsInput = document.getElementById('pointsInput');
+    const adjustType = document.getElementById('adjustType');
+    if (pointsInput && adjustType) {
+        const updatePreview = () => {
+            const inputValue = parseInt(pointsInput.value) || 0;
+            const type = adjustType.value;
+            let newPoints = currentPoints;
+            
+            if (type === 'set') {
+                newPoints = inputValue;
+            } else if (type === 'add') {
+                newPoints = currentPoints + inputValue;
+            } else if (type === 'subtract') {
+                newPoints = Math.max(0, currentPoints - inputValue);
+            }
+            
+            const previewEl = document.getElementById('previewPoints');
+            if (previewEl) {
+                previewEl.textContent = newPoints;
+            }
+        };
+        
+        pointsInput.addEventListener('input', updatePreview);
+        adjustType.addEventListener('change', updatePreview);
+    }
     document.getElementById('showStatsBtn').addEventListener('click', showStatsModal);
     document.getElementById('closeStatsBtn').addEventListener('click', hideStatsModal);
     document.getElementById('statsModal').addEventListener('click', (e) => {
@@ -984,6 +1035,166 @@ function hideCostModal() {
     document.getElementById('costModal').classList.remove('show');
 }
 
+// 积分调整密码常量
+const ADJUST_POINTS_PASSWORD = 'baba521';
+
+// 显示积分调整密码验证对话框
+function showAdjustPointsPasswordModal() {
+    if (!hasSelectedUser()) {
+        showNoUserWarning();
+        return;
+    }
+    
+    const passwordInput = document.getElementById('adjustPasswordInput');
+    const passwordError = document.getElementById('passwordError');
+    
+    if (passwordInput) {
+        passwordInput.value = '';
+    }
+    
+    if (passwordError) {
+        passwordError.style.display = 'none';
+        passwordError.textContent = '';
+    }
+    
+    document.getElementById('adjustPointsPasswordModal').classList.add('show');
+    // 聚焦到密码输入框
+    setTimeout(() => {
+        if (passwordInput) {
+            passwordInput.focus();
+        }
+    }, 100);
+}
+
+// 隐藏积分调整密码验证对话框
+function hideAdjustPointsPasswordModal() {
+    document.getElementById('adjustPointsPasswordModal').classList.remove('show');
+    const passwordInput = document.getElementById('adjustPasswordInput');
+    if (passwordInput) {
+        passwordInput.value = '';
+    }
+    const passwordError = document.getElementById('passwordError');
+    if (passwordError) {
+        passwordError.style.display = 'none';
+    }
+}
+
+// 确认密码验证
+function confirmAdjustPassword() {
+    const passwordInput = document.getElementById('adjustPasswordInput');
+    const passwordError = document.getElementById('passwordError');
+    
+    if (!passwordInput) {
+        console.error('[密码验证] 错误: 找不到密码输入框');
+        return;
+    }
+    
+    const inputPassword = passwordInput.value.trim();
+    
+    if (inputPassword === '') {
+        if (passwordError) {
+            passwordError.textContent = '请输入密码';
+            passwordError.style.display = 'block';
+        }
+        passwordInput.focus();
+        return;
+    }
+    
+    if (inputPassword !== ADJUST_POINTS_PASSWORD) {
+        if (passwordError) {
+            passwordError.textContent = '密码错误，请重试';
+            passwordError.style.display = 'block';
+        }
+        passwordInput.value = '';
+        passwordInput.focus();
+        return;
+    }
+    
+    // 密码正确，隐藏密码对话框，显示积分调整对话框
+    hideAdjustPointsPasswordModal();
+    showAdjustPointsModal();
+}
+
+// 显示积分调整对话框
+function showAdjustPointsModal() {
+    const currentPointsDisplay = document.getElementById('currentPointsDisplay');
+    const pointsInput = document.getElementById('pointsInput');
+    const adjustType = document.getElementById('adjustType');
+    
+    if (currentPointsDisplay) {
+        currentPointsDisplay.textContent = currentPoints;
+    }
+    
+    if (pointsInput) {
+        pointsInput.value = '';
+    }
+    
+    if (adjustType) {
+        adjustType.value = 'set';
+    }
+    
+    // 更新预览
+    const previewEl = document.getElementById('previewPoints');
+    if (previewEl) {
+        previewEl.textContent = currentPoints;
+    }
+    
+    document.getElementById('adjustPointsModal').classList.add('show');
+    // 聚焦到输入框
+    setTimeout(() => {
+        if (pointsInput) {
+            pointsInput.focus();
+        }
+    }, 100);
+}
+
+// 隐藏积分调整对话框
+function hideAdjustPointsModal() {
+    document.getElementById('adjustPointsModal').classList.remove('show');
+}
+
+// 确认调整积分
+function confirmAdjustPoints() {
+    const pointsInput = document.getElementById('pointsInput');
+    const adjustType = document.getElementById('adjustType');
+    
+    if (!pointsInput || !adjustType) {
+        console.error('[积分调整] 错误: 找不到输入元素');
+        return;
+    }
+    
+    const inputValue = parseInt(pointsInput.value);
+    
+    if (isNaN(inputValue) || inputValue < 0) {
+        alert('请输入有效的积分数量（大于等于0的整数）');
+        pointsInput.focus();
+        return;
+    }
+    
+    const type = adjustType.value;
+    let newPoints = currentPoints;
+    
+    if (type === 'set') {
+        newPoints = inputValue;
+    } else if (type === 'add') {
+        newPoints = currentPoints + inputValue;
+    } else if (type === 'subtract') {
+        newPoints = Math.max(0, currentPoints - inputValue);
+    }
+    
+    // 更新积分（手动调整不影响累计获得积分统计）
+    currentPoints = newPoints;
+    
+    // 注意：手动调整积分不会影响 totalPointsEarned（累计获得积分）
+    // totalPointsEarned 只记录通过完成任务获得的积分
+    
+    saveData();
+    hideAdjustPointsModal();
+    updatePointsDisplay();
+    
+    console.log('[积分调整] 积分已调整:', type, inputValue, '新积分:', currentPoints);
+}
+
 // 确认修改抽奖消耗
 function confirmCostChange() {
     console.log('[配置抽奖消耗] 开始修改抽奖消耗积分');
@@ -1575,6 +1786,14 @@ function updateUIForUserSelection() {
         addTaskBtn.disabled = !hasUser;
         addTaskBtn.style.opacity = hasUser ? '1' : '0.5';
         addTaskBtn.style.cursor = hasUser ? 'pointer' : 'not-allowed';
+    }
+    
+    // 积分调整按钮
+    const adjustPointsBtn = document.getElementById('adjustPointsBtn');
+    if (adjustPointsBtn) {
+        adjustPointsBtn.disabled = !hasUser;
+        adjustPointsBtn.style.opacity = hasUser ? '1' : '0.5';
+        adjustPointsBtn.style.cursor = hasUser ? 'pointer' : 'not-allowed';
     }
     
     // 配置抽奖消耗按钮
